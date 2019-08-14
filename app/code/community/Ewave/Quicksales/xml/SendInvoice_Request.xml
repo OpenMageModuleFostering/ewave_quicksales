@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<SendInvoiceRequest>
+  <SellerID>string</SellerID>
+  <SellerPwd>string</SellerPwd>
+  <BuyerID>string</BuyerID>
+  <InvoiceID>integer</InvoiceID>
+  <CheckoutID>integer</CheckoutID>
+  <ItemArray>
+    <Item>
+      <ItemID>integer</ItemID>
+      <Quantity>integer</Quantity>
+    </Item>   
+  </ItemArray>
+  <Postage>decimal</Postage>
+  <Insurance>decimal</Insurance>
+  <SellerDiscountORCharges>decimal</SellerDiscountORCharges>
+  <GSTType>integer</GSTType>
+  <PaymentMethods>
+    <BankCheque>integer</BankCheque>
+    <BankDeposit>integer</BankDeposit>
+    <Cash>integer</Cash>
+    <COD>integer</COD>
+    <CreditCard>integer</CreditCard>
+    <Escrow>integer</Escrow>
+    <MoneyOrder>integer</MoneyOrder>
+    <Paymate>integer</Paymate>
+    <PayPal>integer</PayPal>
+    <PersonalCheque>integer</PersonalCheque>
+    <Other>integer</Other>
+  </PaymentMethods>
+  <PayPalEmailAddress>string</PayPalEmailAddress>
+  <PaymentInstructions>string</PaymentInstructions>
+  <PostageInstructions>string</PostageInstructions>
+  <MessageToBuyer>string</MessageToBuyer>
+  <SendCopyToSeller>integer</SendCopyToSeller>
+  <ResendInvoice>integer</ResendInvoice>
+</SendInvoiceRequest>

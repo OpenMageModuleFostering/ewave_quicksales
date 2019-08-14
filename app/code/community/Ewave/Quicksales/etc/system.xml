@@ -1,0 +1,785 @@
+<?xml version="1.0"?>
+<config>
+
+    <tabs>
+        <ewave translate="label">
+            <label>Quicksales</label>
+            <sort_order>300</sort_order>
+        </ewave>
+    </tabs>
+
+    <sections>
+        <quicksales translate="label" module="quicksales">
+            <class>separator-top</class>
+            <label>Main Settings</label>
+            <tab>ewave</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>45</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <groups>
+                <settings translate="label">
+                    <label>Connection Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <fields>
+
+                        <dev_id translate="label comment">
+                            <label>Dev ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </dev_id>
+
+                        <dev_token translate="label comment">
+                            <label>Dev Token</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </dev_token>
+
+                        <api_version translate="label comment">
+                            <label>API Version</label>
+                            <frontend_type>text</frontend_type>
+                            <default>1</default>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </api_version>
+
+                        <vshop_seller translate="label comment">
+                            <label>Seller login</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>35</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </vshop_seller>
+
+                        <seller_password translate="label comment">
+                            <label>Seller password</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>37</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </seller_password>
+
+                        <have_vshop translate="label comment">
+                            <label>Do you have a vShop</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </have_vshop>
+
+                        <sandbox translate="label comment">
+                            <label>Sandbox</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </sandbox>
+
+                    </fields>
+                </settings>
+                <stock translate="label">
+                    <label>Stock &amp; Product Configuration Options</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>200</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <fields>
+
+                        <update_magento_qty_quicksale_sold translate="label comment">
+                            <label>Update Magento Store product QTY when listed item SOLD on quicksales</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <default>1</default>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </update_magento_qty_quicksale_sold>
+
+                        <update_quicksale_qty_magento_change translate="label comment">
+                            <label>Update quicksales QTY when listed item QTY CHANGED on Magento Store</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <default>1</default>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </update_quicksale_qty_magento_change>
+
+                        <stop_quicksale_magento_qty_less translate="label comment">
+                            <label>Stop quicksales item listing when listed item QTY is 0 or less on Magento Store</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <default>1</default>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </stop_quicksale_magento_qty_less>
+
+                        <stop_quicksale_magento_out_stock translate="label comment">
+                            <label>Stop quicksales item listing when Magento Store product is OUT of stock</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <default>1</default>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </stop_quicksale_magento_out_stock>
+
+                        <start_quicksale_magento_qty_great translate="label comment">
+                            <label>Relist quicksales item listing when Magento Store product is IN stock and QTY is greater than 0</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <default>1</default>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </start_quicksale_magento_qty_great>
+
+                    </fields>
+                </stock>
+                <order_customer translate="label">
+                    <label>Order &amp; Customer Synchronization Options</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>300</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <fields>
+
+                        <import_orders translate="label comment">
+                            <label>Import Orders</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </import_orders>
+
+                        <customer_import translate="label comment">
+                            <label>Customer Import Options</label>
+							<frontend_type>select</frontend_type>
+							<source_model>quicksales/system_customer_import</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </customer_import>
+
+                        <customer_notify translate="label comment">
+                            <label>Second Notification</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <depends><customer_import>import</customer_import></depends>
+                        </customer_notify>
+
+                        <customer_email translate="label comment">
+                            <label>Customer Email</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <depends><customer_import>predefined</customer_import></depends>
+                        </customer_email>
+
+                        <gts_info>
+                            <label>Please see our GST info</label>
+                            <frontend_type>note</frontend_type>
+                            <frontend_model>quicksales/adminhtml_system_config_form_field_gst</frontend_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </gts_info>
+
+                    </fields>
+                </order_customer>
+            </groups>
+        </quicksales>
+        <quicksales_default translate="label" module="quicksales">
+            <class>separator-top</class>
+            <label>Default Configuration</label>
+            <tab>ewave</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>55</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <groups>
+                <pricing translate="label">
+                    <label>Pricing Information</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <fields>
+
+                        <auction_start_price translate="label comment">
+                            <label>Auction Start Price</label>
+							<frontend_type>select</frontend_type>
+							<source_model>quicksales/system_price</source_model>
+                            <comment>Only used when listing as an Auction style listing, the start price should be your reserve price. When specifying this value, a BidIncrement is required.</comment>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </auction_start_price>
+
+                        <auction_start_price_custom translate="label comment">
+                            <label>Auction Start Custom Price</label>
+							<frontend_type>select</frontend_type>
+							<source_model>quicksales/system_price_custom</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <depends><auction_start_price>custom_price</auction_start_price></depends>
+                        </auction_start_price_custom>
+
+                        <bid_increment translate="label comment">
+                            <label>Bid Increment</label>
+							<frontend_type>text</frontend_type>
+                            <comment>The minimum bid amount for each subsequent bid, for example if the start price was $50.00 and the bid increment was $0.20 the first bid would be $50.00, the second minimum bid would be $50.20.</comment>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </bid_increment>
+
+                        <buy_now_price translate="label comment">
+                            <label>Buy Now Price</label>
+							<frontend_type>select</frontend_type>
+							<source_model>quicksales/system_price</source_model>
+                            <comment>The instant purchase price. The instant purchase price. Must be greater than Auction Start Price if defined.</comment>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </buy_now_price>
+
+                        <buy_now_price_custom translate="label comment">
+                            <label>Buy Now Custom Price</label>
+							<frontend_type>select</frontend_type>
+							<source_model>quicksales/system_price_custom</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <depends><buy_now_price>custom_price</buy_now_price></depends>
+                        </buy_now_price_custom>
+
+                    </fields>
+                </pricing>
+                <listing translate="label">
+                    <label>Listing Information</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>200</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <fields>
+
+                        <start_date translate="label comment">
+                            <label>Start Date</label>
+                            <frontend_type>hidden</frontend_type>
+                            <frontend_model>quicksales/adminhtml_system_config_form_field_datetime</frontend_model>
+                            <sort_order>10</sort_order>
+                            <comment>The start time of the listing. If the StartTime is greater than the current time, it will be scheduled, otherwise activated immediately. {StartTime must be in 'dd/mm/yyyy hh:mm:ss tt' or 'dd/mm/yyyy HH:mm:ss' string format} </comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </start_date>
+
+                        <description translate="label comment">
+                            <label>Description</label>
+							<frontend_type>select</frontend_type>
+							<source_model>quicksales/system_description</source_model>
+                            <sort_order>10</sort_order>
+                            <comment>Description of the item, HTML allowed, 600,000 chars.</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </description>
+
+                        <description_custom translate="label comment">
+                            <label>Description Custom</label>
+							<frontend_type>editor</frontend_type>
+                            <frontend_model>quicksales/adminhtml_system_config_form_field_description</frontend_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <depends><description>custom</description></depends>
+                        </description_custom>
+
+                        <duration translate="label comment">
+                            <label>Duration</label>
+							<frontend_type>select</frontend_type>
+							<source_model>quicksales/system_duration</source_model>
+                            <sort_order>30</sort_order>
+                            <comment>The duration of the listing in days. Can be relisted until sold if Auto-Relist is selected, recommended.</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </duration>
+
+                        <brand_new translate="label comment">
+                            <label>Brand New</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </brand_new>
+
+                        <qty translate="label comment">
+                            <label>Quantity</label>
+							<frontend_type>select</frontend_type>
+							<source_model>quicksales/system_qty</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </qty>
+
+                        <qty_custom translate="label comment">
+                            <label>Custom Quantity Attribute</label>
+							<frontend_type>select</frontend_type>
+							<source_model>quicksales/system_custom</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <depends><qty>custom</qty></depends>
+                        </qty_custom>
+
+                        <bid_now translate="label comment">
+                            <label>BidNow </label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>70</sort_order>
+                            <comment>The remaining time of the auction is hidden from buyers. Only applicable for auction style listings.</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </bid_now>
+
+                        <auto_1min translate="label comment">
+                            <label>Auto-1-Min</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>80</sort_order>
+                            <comment>Auto-1-Min extends the auction time for one minute if a bid is placed within the last 60 seconds. Only applicable for auction style listings.</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </auto_1min>
+
+
+                        <auto_relist translate="label comment">
+                            <label>Auto-Relist Options</label>
+							<frontend_type>select</frontend_type>
+							<source_model>quicksales/system_autorelist</source_model>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </auto_relist>
+
+                    </fields>
+                </listing>
+                <listing_upgrade translate="label">
+                    <label>Listing Upgrades (fees apply)</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>300</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <fields>
+
+                        <front_page_featured translate="label comment">
+                            <label>Front Page Featured</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <comment>$14.95 - listing will be randomly displayed on quicksales’ home page and in the Featured Items list.</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </front_page_featured>
+
+                        <category_special translate="label comment">
+                            <label>Category Special</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <comment>$9.95 - listing will be shown above standard listings in category lists and search results.</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </category_special>
+
+                        <highlight_listing translate="label comment">
+                            <label>Highlight Listing</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <comment>$1.95 - listing will be highlighted in category lists and search results.</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </highlight_listing>
+
+                        <bold_title translate="label comment">
+                            <label>Bold Title</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <comment>$0.95 - listing will be in BOLD in category lists and search results.</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </bold_title>
+
+                    </fields>
+                </listing_upgrade>
+                <payment translate="label">
+                    <label>Payment Information</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>400</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <fields>
+
+                        <method translate="label comment">
+                            <label>Payment Methods Accepted</label>
+							<frontend_type>multiselect</frontend_type>
+							<source_model>quicksales/system_payment_method</source_model>
+                            <sort_order>10</sort_order>
+                            <comment><![CDATA[Enter Credit Card, PayPal, Paymate and Bank Deposit settings under <a target="_blank" href="http://www.quicksales.com.au/secure/User/user_mypref.aspx">‘Selling Preferences’</a> in the quicksales website.]]></comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </method>
+
+                        <instruction translate="label comment">
+                            <label>Payment Instructions</label>
+							<frontend_type>textarea</frontend_type>
+                            <sort_order>20</sort_order>
+                            <comment>Optional payment instructions, 1,000 chars.</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </instruction>
+
+                        <show_policy translate="label comment">
+                            <label>Show Refund &amp; Return Policy</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <comment><![CDATA[Shows your Refund & Return Policies as entered under <a target="_blank" href="http://www.quicksales.com.au/secure/User/user_mypref.aspx">‘Selling Preferences’</a> in the quicksales website.]]></comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </show_policy>
+
+                    </fields>
+                </payment>
+                <shipping translate="label">
+                    <label>Shipping Information</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>500</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <fields>
+
+                        <method translate="label comment">
+                            <label>Shipping Method</label>
+							<frontend_type>select</frontend_type>
+							<source_model>quicksales/system_shipping_method</source_model>
+                            <sort_order>10</sort_order>
+                            <comment><![CDATA[Choose one of the shipping methods supported on quicksales.  Notes:<br />
+                                * Temando  (create a free <a target="_blank" href="http://www.quicksales.com.au/secure/User/user_freightaccount.aspx">Temando account</a>)  =  your rates shown to buyers<br />
+                                * Flat Postage = Fixed price to anywhere<br />
+                                * Flat Postage by Location = A different Fixed price to each state<br />
+                                * Calculated postage,  Australia Post rates shown to buyers<br />
+                                * See Item Description = Include a shipping info within the listing description<br />
+                            ]]></comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </method>
+
+                        <flat_rate translate="label comment">
+                            <label>Postage Flat Rate</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <depends><method>2</method></depends>
+                        </flat_rate>
+
+                        <flat_table_rate_nsw translate="label comment">
+                            <label>Fixed Rate to NSW</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <depends><method>3</method></depends>
+                        </flat_table_rate_nsw>
+
+                        <flat_table_rate_vic translate="label comment">
+                            <label>Fixed Rate to VIC</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <depends><method>3</method></depends>
+                        </flat_table_rate_vic>
+
+                        <flat_table_rate_qld translate="label comment">
+                            <label>Fixed Rate to QLD</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <depends><method>3</method></depends>
+                        </flat_table_rate_qld>
+
+                        <flat_table_rate_act translate="label comment">
+                            <label>Fixed Rate to ACT</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <depends><method>3</method></depends>
+                        </flat_table_rate_act>
+
+                        <flat_table_rate_nt translate="label comment">
+                            <label>Fixed Rate to NT</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <depends><method>3</method></depends>
+                        </flat_table_rate_nt>
+
+                        <flat_table_rate_tas translate="label comment">
+                            <label>Fixed Rate to TAS</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <depends><method>3</method></depends>
+                        </flat_table_rate_tas>
+
+                        <flat_table_rate_sa translate="label comment">
+                            <label>Fixed Rate to SA</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <depends><method>3</method></depends>
+                        </flat_table_rate_sa>
+
+                        <flat_table_rate_wa translate="label comment">
+                            <label>Fixed Rate to WA</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <depends><method>3</method></depends>
+                        </flat_table_rate_wa>
+
+                        <au_post_regular>
+                            <label>Australia Post service "Regular" offered</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <depends><method>4</method></depends>
+                        </au_post_regular>
+
+                        <calc_au_post_express>
+                            <label>Australia Post service "Express" offered</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <depends><method>4</method></depends>
+                        </calc_au_post_express>
+
+                        <calc_length>
+                            <label>Length Attribute</label>
+							<frontend_type>select</frontend_type>
+							<source_model>quicksales/system_custom</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <depends><method>4</method></depends>
+                        </calc_length>
+
+                        <calc_width>
+                            <label>Width Attribute</label>
+							<frontend_type>select</frontend_type>
+							<source_model>quicksales/system_custom</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <depends><method>4</method></depends>
+                        </calc_width>
+
+                        <calc_height>
+                            <label>Height Attribute</label>
+							<frontend_type>select</frontend_type>
+							<source_model>quicksales/system_custom</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <depends><method>4</method></depends>
+                        </calc_height>
+
+                        <calc_weight>
+                            <label>Weight Attribute</label>
+							<frontend_type>select</frontend_type>
+							<source_model>quicksales/system_custom</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <depends><method>4</method></depends>
+                        </calc_weight>
+
+                        <temando_package>
+                            <label>Temando Package</label>
+							<frontend_type>select</frontend_type>
+							<source_model>quicksales/system_shipping_package</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <depends><method>7</method></depends>
+                        </temando_package>
+
+                        <temando_length>
+                            <label>Length Attribute</label>
+							<frontend_type>select</frontend_type>
+							<source_model>quicksales/system_custom</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <depends><method>7</method></depends>
+                        </temando_length>
+
+                        <temando_width>
+                            <label>Width Attribute</label>
+							<frontend_type>select</frontend_type>
+							<source_model>quicksales/system_custom</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <depends><method>7</method></depends>
+                        </temando_width>
+
+                        <temando_height>
+                            <label>Height Attribute</label>
+							<frontend_type>select</frontend_type>
+							<source_model>quicksales/system_custom</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <depends><method>7</method></depends>
+                        </temando_height>
+
+                        <temando_weight>
+                            <label>Weight Attribute</label>
+							<frontend_type>select</frontend_type>
+							<source_model>quicksales/system_custom</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <depends><method>7</method></depends>
+                        </temando_weight>
+
+                        <posttolocation translate="label comment">
+                            <label>Post to location</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>quicksales/system_shipping_posttolocation
+                            </source_model>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </posttolocation>
+
+                        <postinst translate="label comment">
+                            <label>Post Instructions</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </postinst>
+
+                    </fields>
+                </shipping>
+
+            </groups>
+        </quicksales_default>
+
+        <payment>
+            <groups>
+<!-- newmodule fieldset -->
+                <quicksales translate="label" module="quicksales">
+<!-- will have title 'New Module' -->
+                    <label>Quicksales Order</label>
+<!-- position between other payment methods -->
+                    <sort_order>670</sort_order>
+<!-- do not show this configuration options in store scope -->
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+<!-- is this payment method active for the website? -->
+                        <active translate="label">
+<!-- label for the field -->
+                            <label>Enabled</label>
+<!-- input type for configuration value -->
+                            <frontend_type>select</frontend_type>
+<!-- model to take the option values from -->
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+<!-- field position -->
+                            <sort_order>1</sort_order>
+<!-- do not show this field in store scope -->
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+
+                        <order_status translate="label">
+                            <label>New order status</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_order_status_new</source_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </order_status>
+
+                        <title translate="label">
+                            <label>Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </title>
+                    </fields>
+                </quicksales>
+            </groups>
+        </payment>
+
+    </sections>
+    <default>
+
+        <quicksales>
+            <stock>
+                <update_quicksale_qty_magento_change>1</update_quicksale_qty_magento_change>
+                <stop_quicksale_magento_qty_less>1</stop_quicksale_magento_qty_less>
+                <stop_quicksale_magento_out_stock>1</stop_quicksale_magento_out_stock>
+                <start_quicksale_magento_qty_great>1</start_quicksale_magento_qty_great>
+            </stock>
+        </quicksales>
+
+        <quicksales_default>
+                <pricing>
+                        <bid_increment>0.05</bid_increment>
+                </pricing>
+        </quicksales_default>
+
+    </default>
+
+</config>
+

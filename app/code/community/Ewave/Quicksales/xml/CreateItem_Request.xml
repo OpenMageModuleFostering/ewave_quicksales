@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CreateItemRequest>
+  <Item>
+    <SellerID>ewavedesigns</SellerID>
+    <SellerPwd>welcome</SellerPwd>
+    <Title>Red Evening Dress Size 12</Title>
+    <Category>2780</Category>
+    <Duration>3</Duration>
+    <BuyNowPrice>50.00</BuyNowPrice>
+    <Quantity>1</Quantity>
+    <BrandNew>1</BrandNew>
+ 
+    <AutoRelistFeatures>
+      <AutoRelistType>2</AutoRelistType>
+    </AutoRelistFeatures>
+ 
+    <PaymentMethods>
+      <BankDeposit>1</BankDeposit>
+      <MoneyOrder>1</MoneyOrder>
+      <ProvideBankDetailsToBuyer>1</ProvideBankDetailsToBuyer>
+    </PaymentMethods>
+ 
+    <PaymentInst>If paying by bank deposit, please enter the ItemID as the reference.</PaymentInst>
+ 
+    <Postage>
+      <Type>2</Type>
+      <FixedPostage>3.50</FixedPostage>
+    </Postage>
+    <ProvideReturnRefundPolicy>1</ProvideReturnRefundPolicy>
+ 
+    <PostToLocation>
+      <National>1</National>
+      <Statewide>1</Statewide>
+      <LocalPickup>1</LocalPickup>
+    </PostToLocation>
+ 
+    <PostInst>I'll send the item within 3 days of receiving payment</PostInst>
+ 
+    <Description>This is a sleevless red evening dress that has never been worn. Size 12. Original cost was $299</Description>
+ 
+
+  </Item>
+</CreateItemRequest>

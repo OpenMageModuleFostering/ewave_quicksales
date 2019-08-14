@@ -1,0 +1,65 @@
+<?php if ($this->getQAttributes()) : ?>
+    <?php $listing = Mage::registry('current_listing'); ?>
+    <?php $associatedAttributes = $listing->getAttributesAssociation(); ?>
+    <table id='assign_attributes_table' class='data'>
+
+        <thead>
+            <tr class='headings'>
+                <th><?php echo $this->__('Quicksales');?></th>
+                <th><?php echo $this->__('Magento');?></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <?php foreach ($this->getQAttributes() as $qAttribute): ?>
+            <tr>
+                <td><?php echo $qAttribute['name'] ?></td>
+                <td>
+                    <?php if ($this->getMAttributes()): ?>
+                        <select id='k_body_values_<?php echo $qAttribute['id'];?>' class='quicksales_values_association' name='listing[attributes_association][<?php echo $qAttribute['id'];?>]'>
+                            <option value=""></option>
+
+                            <?php foreach($this->getMAttributes() as $id => $name) :?>
+                                <option value="<?php echo $id;?>" <?php if ($associatedAttributes[$qAttribute['id']] == $id): ?> selected='selected'<?php endif; ?> >
+                                    <?php echo $name;?>
+                                </option>
+                            <?php endforeach;?>
+                        </select>
+                    <?php endif;?>
+                </td>
+            </tr>
+            <?php endforeach ?>
+        </tbody>
+
+    </table>
+
+    <br />
+    <h3><?php echo $this->__('Assign Values');?></h3>
+    <br />
+
+    <?php foreach ($this->getQAttributes() as $qAttribute): ?>
+    <table class='data' id='values_<?php echo $qAttribute['id']; ?>'>
+
+        <thead>
+        <tr class='headings'>
+            <th colspan='2'><?php echo $qAttribute['name'] ?></th>
+        </tr>
+
+        <tr class='filter'>
+            <th class='half'><?php echo $this->__('Magento'); ?></th>
+            <th class='half'><?php echo $this->__('Quicksales'); ?></th>
+        </tr>
+
+        </thead>
+
+
+        <tbody id="body_values_<?php echo $qAttribute['id']; ?>">
+            <?php echo $this->getAssociatedGridHtml($qAttribute['id']) ?>
+        </tbody>
+    </table>
+        <br />
+    <?php endforeach;?>
+<?php else: ?>
+        <?php echo $this->__('There are no quicksales Tags to map for the selected category')?>
+<?php endif;?>
+

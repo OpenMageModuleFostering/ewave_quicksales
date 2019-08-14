@@ -1,0 +1,7 @@
+<div id='assign_attributes' class='grid'>
+    <?php echo $this->getChildHtml('attributes_association'); ?>
+</div>
+
+<script type='text/javascript'>
+    var listingSettingsObj = new listingSettings('<?php echo $this->getUrl("quicksales/adminhtml_listing/attributes")?>', '<?php echo $this->getUrl("quicksales/adminhtml_listing/attributeValues", array('id' => $this->getRequest()->getParam('id')))?>');
+</script>

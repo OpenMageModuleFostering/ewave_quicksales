@@ -1,0 +1,281 @@
+<?xml version="1.0"?>
+<config>
+
+    <modules>
+        <Ewave_Quicksales>
+            <version>1.3.2</version>
+        </Ewave_Quicksales>
+    </modules>
+
+    <frontend>
+        <routers>
+            <quicksales>
+                <use>standard</use>
+                <args>
+                    <module>Ewave_Quicksales</module>
+                    <frontName>quicksales</frontName>
+                </args>
+            </quicksales>
+        </routers>
+        <layout>
+            <updates>
+                <quicksales>
+                    <file>quicksales.xml</file>
+                </quicksales>
+            </updates>
+        </layout>
+    </frontend>
+
+    <admin>
+        <routers>
+            <quicksales>
+                <use>admin</use>
+                <args>
+                    <module>Ewave_Quicksales</module>
+                    <frontName>quicksales</frontName>
+                </args>
+            </quicksales>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <quicksales>
+                    <file>quicksales.xml</file>
+                </quicksales>
+            </updates>
+        </layout>
+    </adminhtml>
+
+    <global>
+        <models>
+            <quicksales>
+                <class>Ewave_Quicksales_Model</class>
+                <resourceModel>quicksales_mysql4</resourceModel>
+            </quicksales>
+
+            <quicksales_mysql4>
+                <class>Ewave_Quicksales_Model_Resource</class>
+
+                <entities>
+
+                    <listing>
+                        <table>listing</table>
+                    </listing>
+
+                    <listing_log>
+                        <table>listing_log</table>
+                    </listing_log>
+
+                    <listing_product_log>
+                        <table>listing_product_log</table>
+                    </listing_product_log>
+
+                    <listing_product>
+                        <table>listing_product</table>
+                    </listing_product>
+
+                    <listing_attribute>
+                        <table>listing_attribute</table>
+                    </listing_attribute>
+
+                    <listing_attribute_value>
+                        <table>listing_attribute_value</table>
+                    </listing_attribute_value>
+
+                </entities>
+            </quicksales_mysql4>
+
+            <cataloginventory_resource>
+                <rewrite>
+                    <stock>Ewave_Quicksales_CatalogInventory_Model_Resource_Stock</stock>
+                </rewrite>
+            </cataloginventory_resource>
+
+            <!--sales>
+                <rewrite>
+                    <order_shipment>Ewave_Quicksales_Model_RW_Sales_Order_Shipment</order_shipment>
+                </rewrite>
+            </sales-->
+        </models>
+
+        <resources>
+
+            <quicksales_setup>
+                <setup>
+                    <module>Ewave_Quicksales</module>
+                    <class>Ewave_Quicksales_Model_Entity_Setup</class>
+
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </quicksales_setup>
+
+            <quicksales_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </quicksales_write>
+
+            <quicksales_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </quicksales_read>
+
+        </resources>
+
+        <blocks>
+            <quicksales>
+                <class>Ewave_Quicksales_Block</class>
+            </quicksales>
+
+            <adminhtml>
+                <rewrite>
+                    <sales_order_grid>Ewave_Quicksales_Block_RW_Adminhtml_Sales_Order_Grid</sales_order_grid>
+                    <sales_order_view>Ewave_Quicksales_Block_RW_Adminhtml_Sales_Order_View</sales_order_view>
+                    <sales_order_payment>Ewave_Quicksales_Block_RW_Adminhtml_Sales_Order_Payment</sales_order_payment>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+
+        <helpers>
+            <quicksales>
+                <class>Ewave_Quicksales_Helper</class>
+            </quicksales>
+        </helpers>
+
+        <events>
+            <cataloginventory_stock_item_save_commit_after>
+                <observers>
+                    <module>
+                        <type>singleton</type>
+                        <class>quicksales/observer</class>
+                        <method>updateQty</method>
+                    </module>
+                </observers>
+            </cataloginventory_stock_item_save_commit_after>
+
+            <catalog_product_save_after>
+                <observers>
+                    <module>
+                        <type>singleton</type>
+                        <class>quicksales/observer</class>
+                        <method>updateProduct</method>
+                    </module>
+                </observers>
+            </catalog_product_save_after>
+
+            <sales_order_invoice_register>
+                <observers>
+                    <module>
+                        <type>singleton</type>
+                        <class>quicksales/observer</class>
+                        <method>sendQuicksaleOrder</method>
+                    </module>
+                </observers>
+            </sales_order_invoice_register>
+
+            <sales_order_shipment_save_commit_after>
+                <observers>
+                    <module>
+                        <type>singleton</type>
+                        <class>quicksales/observer</class>
+                        <method>shippedOrder</method>
+                    </module>
+                </observers>
+            </sales_order_shipment_save_commit_after>
+
+            <sales_order_shipment_save_before>
+                <observers>
+                    <module>
+                        <type>singleton</type>
+                        <class>quicksales/observer</class>
+                        <method>checkShippedOrder</method>
+                    </module>
+                </observers>
+            </sales_order_shipment_save_before>
+
+        </events>
+
+        <sales>
+            <order>
+                <statuses>
+
+                    <qnot_checked_out translate="label">
+                        <label>Not Checked Out</label>
+                    </qnot_checked_out>
+
+                    <qpaid translate="label">
+                        <label>QS Paid</label>
+                    </qpaid>
+
+                </statuses>
+
+                <states>
+                    <qpaid translate="label">
+                        <label>QS Paid</label>
+                        <statuses>
+                            <qpaid default="1"/>
+                        </statuses>
+                    </qpaid>
+                    <qnot_checked_out translate="label">
+                        <label>Not Checked Out</label>
+                        <statuses>
+                            <qnot_checked_out default="1"/>
+                        </statuses>
+                    </qnot_checked_out>
+                </states>
+            </order>
+        </sales>
+
+    </global>
+
+    <default>
+        <quicksales>
+            <settings>
+                <api_version>1</api_version>
+            </settings>
+        </quicksales>
+
+        <payment>
+            <quicksales>
+                <active>1</active>
+                <model>quicksales/payment_method_quicksales</model>
+                <order_status>pending</order_status>
+                <title>Quicksales Order</title>
+                <allowspecific>0</allowspecific>
+                <group>offline</group>
+            </quicksales>
+        </payment>
+
+    </default>
+
+    <crontab>
+        <jobs>
+            <quicksales_synch>
+                <schedule>
+                    <cron_expr>0 1 * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>quicksales/observer::getQuicksalesItems</model>
+                </run>
+            </quicksales_synch>
+
+            <quicksales_order>
+                <schedule>
+                    <cron_expr>*/15 * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>quicksales/observer::getQuicksalesOrders</model>
+                </run>
+            </quicksales_order>
+        </jobs>
+
+    </crontab>
+
+</config>
+
+

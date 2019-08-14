@@ -1,0 +1,59 @@
+<div class="entry-edit">
+
+
+    <div class="entry-edit-head">
+        <h4 class="icon-head head-account">
+            &nbsp;
+        </h4>
+    </div>
+
+
+    <div class="fieldset">
+
+
+        <table cellspacing="0" class="form-list">
+            <tr>
+
+                <td class="label">
+                    <?php echo $this->__('Order source');?>
+                </td>
+
+                <td>
+                    <?php if ($this->getOrder()->getQsource() == 1): ?>
+                    <?php echo $this->__('quicksales'); ?>
+                    <?php else: ?>
+                    <?php echo $this->__('magento'); ?>
+                    <?endif;?>
+                </td>
+
+            </tr>
+
+            <?php if ($this->getOrder()->getQsource() == 1): ?>
+            <tr>
+
+                <td class="label">
+                    <?php echo $this->__('quicksales order#');?>
+                </td>
+
+                <td>
+                    <?php echo $this->getOrder()->getData('quicksales_order_id'); ?>
+                </td>
+            </tr>
+
+            <tr>
+
+                <td class="label">
+                    <?php echo $this->__('quicksales hash#');?>
+                </td>
+
+                <td>
+                    <?php echo $this->getOrder()->getData('qhash'); ?>
+                </td>
+            </tr>
+
+            <?php endif;?>
+
+        </table>
+
+    </div>
+    </div>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    Ewave
+ * @package     Ewave_Quicksales
+ */
+-->
+<config>
+    <modules>
+        <Ewave_Quicksales>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Ewave_Quicksales>
+    </modules>
+</config>

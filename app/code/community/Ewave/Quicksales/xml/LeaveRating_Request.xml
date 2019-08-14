@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LeaveRatingRequest>
+  <UserID>string</UserID>
+  <UserPwd>string</UserPwd>
+  <ItemID>integer</ItemID>
+  <CommentText>string</CommentText>
+  <CommentType>integer</CommentType>
+  <TargetUser>string</TargetUser>
+  <NotifyTargetUser>integer</NotifyTargetUser>
+  <OverwriteExistingCommentText>integer</OverwriteExistingCommentText>
+</LeaveRatingRequest>

@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <quicksales module="quicksales" translate="title">
+                                        <title>Main Settings</title>
+                                    </quicksales>
+                                    <quicksales_default module="quicksales" translate="title">
+                                        <title>Default Configuration</title>
+                                    </quicksales_default>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+
+    <menu>
+        <quicksales>
+            <title>Quicksales</title>
+            <sort_order>71</sort_order>
+            <children>
+                <listing>
+                    <title>Listings</title>
+                    <sort_order>0</sort_order>
+                    <action>quicksales/adminhtml_listing</action>
+                </listing>
+                <log>
+                    <title>Logs</title>
+                    <sort_order>0</sort_order>
+                    <action>quicksales/adminhtml_log</action>
+                </log>
+            </children>
+        </quicksales>
+    </menu>
+
+</config>

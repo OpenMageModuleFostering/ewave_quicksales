@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+
+<layout>
+
+    <quicksales_adminhtml_log_index>
+        <reference name="content">
+            <block type="quicksales/adminhtml_log" name="log" />
+        </reference>
+    </quicksales_adminhtml_log_index>
+
+    <quicksales_adminhtml_listing_index>
+        <reference name="content">
+            <block type="quicksales/adminhtml_listing" name="listing" />
+        </reference>
+    </quicksales_adminhtml_listing_index>
+
+    <quicksales_adminhtml_listing_new>
+        
+        <reference name="head">
+            <action method="addJs"><script>quicksales/adminhtml/categories.js</script></action>
+            <action method="addJs"><script>quicksales/adminhtml/listing.js</script></action>
+            <action method="addCss"><name>quicksales/css/quicksales.css</name></action>
+        </reference>
+
+        <reference name='content'>
+            <block type="quicksales/adminhtml_listing_edit" name="listing_edit" />
+        </reference>
+        
+        <reference name="left">
+            <block type="quicksales/adminhtml_listing_edit_tabs" name="product_tabs"></block>
+        </reference>
+
+    </quicksales_adminhtml_listing_new>
+
+
+    <quicksales_adminhtml_listing_edit>
+
+        <reference name="head">
+            <action method="addJs"><script>quicksales/adminhtml/categories.js</script></action>
+            <action method="addJs"><script>quicksales/adminhtml/listing.js</script></action>
+            <action method="addCss"><name>quicksales/css/quicksales.css</name></action>
+        </reference>
+
+        <reference name='content'>
+            <block type="quicksales/adminhtml_listing_edit" name="listing_edit" />
+        </reference>
+
+        <reference name="left">
+            <block type="quicksales/adminhtml_listing_edit_tabs" name="product_tabs"></block>
+        </reference>
+
+    </quicksales_adminhtml_listing_edit>
+
+    <quicksales_adminhtml_listing_log>
+        <reference name="content">
+            <block type="quicksales/adminhtml_listing_log" name="listing_log" />
+        </reference>
+    </quicksales_adminhtml_listing_log>
+
+    <quicksales_adminhtml_listing_productlog>
+        <reference name="content">
+            <block type="quicksales/adminhtml_listing_product_log" name="listing_product_log" />
+        </reference>
+    </quicksales_adminhtml_listing_productlog>
+
+    <quicksales_adminhtml_listing_products>
+        <block type="quicksales/adminhtml_listing_edit_tab_additional_step1_grid"
+               name="quicksales.admin.listing.edit.tab.additional.step1.grid" output="toHtml"/>
+    </quicksales_adminhtml_listing_products>
+
+    <quicksales_adminhtml_listing_attributes>
+
+        <block type="quicksales/adminhtml_listing_edit_tab_additional_step3_attributes"
+               name="quicksales.admin.listing.edit.tab.additional.step3" output="toHtml"/>
+
+    </quicksales_adminhtml_listing_attributes>
+
+    <adminhtml_sales_order_view>
+        <reference name='sales_order_tabs'>
+            <action method="addTab">
+                <name>quicksales</name>
+                <block>quicksales/adminhtml_sales_order_view_tab_quicksales</block>
+                <template>quicksales/sales/order/view/tab/quicksales.phtml</template>
+            </action>
+        </reference>
+    </adminhtml_sales_order_view>
+
+
+
+</layout>

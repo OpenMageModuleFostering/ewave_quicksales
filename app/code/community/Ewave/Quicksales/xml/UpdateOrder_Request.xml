@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<UpdateOrderRequest>
+  <UserID>string</UserID>
+  <UserPwd>string</UserPwd>
+  <InvoiceID>integer</InvoiceID>
+  <Action>integer</Action>
+  <NotifyBuyer>integer</NotifyBuyer>
+</UpdateOrderRequest>

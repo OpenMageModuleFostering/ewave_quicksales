@@ -1,0 +1,32 @@
+<ReviseItemRequest>
+    <Item>
+        <ListingID>1605</ListingID>
+        <Title>test4</Title>
+        <Category>556</Category>
+        <PromotionalFeatures>
+            <Frontpage>1</Frontpage>
+            <CategorySpecial>1</CategorySpecial>
+            <HighlightListing>0</HighlightListing>
+            <BoldTitle>0</BoldTitle>
+        </PromotionalFeatures>
+        <AutoRelistFeatures>
+            <AutoRelistType>0</AutoRelistType>
+        </AutoRelistFeatures>
+        <PaymentMethods>
+            <BankCheque>1</BankCheque>
+            <BankDeposit>1</BankDeposit>
+            <Cash>1</Cash>
+        </PaymentMethods>
+        <ProvideReturnRefundPolicy>0</ProvideReturnRefundPolicy>
+        <PaymentInst/>
+        <Postage>
+            <Type>1</Type>
+            <PostInst/>
+        </Postage>
+        <PostToLocation>
+            <Worldwide>1</Worldwide>
+            <National>1</National>
+        </PostToLocation>
+        <StartTime>14/11/2011</StartTime>
+    </Item>
+</ReviseItemRequest>

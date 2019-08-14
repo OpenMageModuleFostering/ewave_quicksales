@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<GetItemRequest>
+  <ListingID>integer</ListingID>
+  <UserID>string</UserID>
+  <UserPwd>string</UserPwd>
+  <Status>string</Status>
+  <ReturnField>string</ReturnField>
+  <!--more ReturnField nodes-->
+</GetItemRequest>

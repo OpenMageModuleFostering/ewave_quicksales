@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<GetOrdersRequest>
+  <UserID>string</UserID>
+  <UserPwd>string</UserPwd>
+  <NumberOfDays>integer</NumberOfDays>
+  <RequestingRole>string</RequestingRole>
+  <InvoiceID>integer</InvoiceID>
+</GetOrdersRequest>

@@ -1,0 +1,17 @@
+{
+    "name": "OpenMageModuleFostering/Ewave_Quicksales",
+    "type": "magento-module",
+    "license": "GPL",
+    "homepage": "",
+    "description": "Integrate your Magento backend into the quicksales platform. Push
+products to quicksales and pull orders seamlessly",
+    "authors": [
+    {
+        "name": "Fatima Said",
+        "email": "info@madebyewave.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

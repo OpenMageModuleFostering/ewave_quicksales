@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<GetListingAndItemIDsRequest>
+  <SellerID>string</SellerID>
+  <SellerPwd>string</SellerPwd>
+  <ListingID>integer</ListingID>
+  <Status>integer</Status>
+</GetListingAndItemIDsRequest>

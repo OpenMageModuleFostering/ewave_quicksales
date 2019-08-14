@@ -1,0 +1,66 @@
+<div class='entry-edit'>
+    <div class='fieldset fieldset-wide'>
+        <table class='form-list'>
+            <tr>
+                <td class='label'>
+                    <label for='assigned_products_grid'><?php echo $this->__('Assigned products');?></label>
+                </td>
+                <td class='value'>
+                    <table>
+                        <tbody>
+                        <?php if ($this->getAssignedProducts()): ?>
+                            <?php foreach ($this->getAssignedProducts() as $product): ?>
+                            <tr <?php if ($product->getQlistingId()): ?> class='saved'<?php endif;?>>
+                                <td>
+
+
+                                    <b>
+                                        <input id="assigned_products_<?php echo $product->getId(); ?>" type="hidden"
+                                               name="listing[assigned_products][]"
+                                               value="<?php echo $product->getId(); ?>"/>
+                                        <?php echo $product->getQlistingId(); ?>
+                                    </b>
+                                </td>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <?php echo $product->getName();?>
+                                </td>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <?php
+                                    $api = Mage::getModel('quicksales/api');
+                                    if ($api->isSand()) {
+                                        $url = "http://sandbox.quicksales.com.au/buy/auction.aspx?lid=";
+                                    } else {
+                                        $url = "http://developer.quicksales.com.au/buy/auction.aspx?lid=";
+                                    }
+                                    ?>
+                                    <a href='<?php echo $url . $product->getQlistingId(); ?>'>
+                                        quicksales page
+                                    </a>
+                                </td>
+                            </tr>
+                                <?php endforeach ?>
+                            <?php endif ?>
+                        </tbody>
+                    </table>
+
+                    <table id='assigned_products_grid'>
+                        <tbody></tbody>
+                    </table>
+
+                </td>
+                <td class='scope-label'>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<?php echo $this->getChildHtml('quicksales_product_grid');?>
+
+<script type='text/javascript'>
+
+    var listingProducts = new listingProducts(<?php echo $this->getGridJsObject() ?>, <?php echo $this->getAssignedProductsJson(); ?>, 'assigned_products_grid');
+
+</script>
