@@ -51,7 +51,7 @@ class Ewave_Quicksales_Model_Api_Updateorder extends Mage_Core_Model_Abstract
 
         $listing_log = Mage::getModel('quicksales/listing_log');
 
-        $date = time();
+        $date = Zend_Date::now()->toString(Varien_Date::DATETIME_INTERNAL_FORMAT);
         $rez = 1;
 
         $listing_log

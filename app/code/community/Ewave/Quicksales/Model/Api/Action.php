@@ -42,7 +42,7 @@ class Ewave_Quicksales_Model_Api_Action extends Mage_Core_Model_Abstract
 
         $listing_log = Mage::getModel('quicksales/listing_log');
 
-        $date = time();
+        $date = Zend_Date::now()->toString(Varien_Date::DATETIME_INTERNAL_FORMAT);
         $listing_log
             ->setListingId($listing->getId())
             ->setDate($date);
@@ -117,6 +117,7 @@ class Ewave_Quicksales_Model_Api_Action extends Mage_Core_Model_Abstract
                     $result = 0;
                 } else {
                     $this->_updated++;
+                    $result = 1;
                 }
 
                 $message .= $resultInformation['Message'];

@@ -142,7 +142,7 @@ class Ewave_Quicksales_Block_Adminhtml_Listing_Edit_Tab_Attributes extends Mage_
             $form->addValues($values);
             $form->setFieldNameSuffix('listing');
 
-            Mage::dispatchEvent('adminhtml_catalog_product_edit_prepare_form', array('form' => $form));
+            Mage::dispatchEvent('ewave_quicksales_listing_edit_prepare_form', array('form' => $form));
 
             $this->setForm($form);
         }

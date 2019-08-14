@@ -4,6 +4,7 @@ class Ewave_Quicksales_Model_Payment_Method_Quicksales extends Mage_Payment_Mode
 {
     protected $_code  = 'quicksales';
     protected $_canCapture                  = true;
+    protected $_canUseCheckout = false;
     //protected $_formBlockType = 'payment/form_purchaseorder';
     //protected $_infoBlockType = 'payment/info_purchaseorder';
 

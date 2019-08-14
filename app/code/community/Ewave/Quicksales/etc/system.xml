@@ -2,17 +2,17 @@
 <config>
 
     <tabs>
-        <ewave translate="label">
+        <ewave_quicksales translate="label">
             <label>Quicksales</label>
             <sort_order>300</sort_order>
-        </ewave>
+        </ewave_quicksales>
     </tabs>
 
     <sections>
         <quicksales translate="label" module="quicksales">
             <class>separator-top</class>
             <label>Main Settings</label>
-            <tab>ewave</tab>
+            <tab>ewave_quicksales</tab>
             <frontend_type>text</frontend_type>
             <sort_order>45</sort_order>
             <show_in_default>1</show_in_default>
@@ -208,7 +208,7 @@
         <quicksales_default translate="label" module="quicksales">
             <class>separator-top</class>
             <label>Default Configuration</label>
-            <tab>ewave</tab>
+            <tab>ewave_quicksales</tab>
             <frontend_type>text</frontend_type>
             <sort_order>55</sort_order>
             <show_in_default>1</show_in_default>

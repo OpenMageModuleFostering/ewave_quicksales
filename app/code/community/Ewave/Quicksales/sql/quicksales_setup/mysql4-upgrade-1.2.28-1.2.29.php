@@ -3,19 +3,22 @@
 $installer = $this;
 $installer->startSetup();
 
-$status = Mage::getModel('sales/order_status')->load('qpaid');
+if (Mage::getModel('sales/order_status')->getResource()) {
 
-$status->setData(
-    array(
-        'status' => 'qpaid',
-        'label' => 'QS Paid',
-        'state' => 'qpaid',
-        'state_label' => 'QS Paid',
-    )
-);
+    $status = Mage::getModel('sales/order_status')->load('qpaid');
 
-$status->assignState('qpaid');
+    $status->setData(
+        array(
+            'status' => 'qpaid',
+            'label' => 'QS Paid',
+            'state' => 'qpaid',
+            'state_label' => 'QS Paid',
+        )
+    );
 
-$status->save();
+    $status->assignState('qpaid');
+
+    $status->save();
+}
 
 $installer->endSetup();

@@ -54,7 +54,7 @@ class Ewave_Quicksales_Model_Api_Getorders extends Mage_Core_Model_Abstract
 
         $this->_listing_log = Mage::getModel('quicksales/listing_log');
 
-        $date = time();
+        $date = Zend_Date::now()->toString(Varien_Date::DATETIME_INTERNAL_FORMAT);
 
         $this->_listing_log
             ->setType(3)
@@ -164,6 +164,9 @@ class Ewave_Quicksales_Model_Api_Getorders extends Mage_Core_Model_Abstract
                                 $skeepOrder = true;
                                 break;
                             } elseif ($oldStatus == 'pending' && ((string)$Transaction->CheckoutDetails->CheckoutID != '')) {
+                                $skeepOrder = true;
+								break;
+							} elseif ((!empty($invoiceId) && $order->getQuicksalesOrderId() == $invoiceId)  || !$order->canCancel()) {
                                 $skeepOrder = true;
 								break;
                             }
@@ -429,8 +432,7 @@ class Ewave_Quicksales_Model_Api_Getorders extends Mage_Core_Model_Abstract
 
             $quoteItem = Mage::getModel('sales/quote_item')->setProduct($productObj);
 
-            $quoteItem->setQty((string)$item->QuantitySold);
-
+            $quoteItem->setData('qty', (int)$item->QuantitySold);
 
             $customerName = explode(' ', (string)$item->CheckoutDetails->ShippingDetails->Name);
 

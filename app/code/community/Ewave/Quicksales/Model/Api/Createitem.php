@@ -57,7 +57,7 @@ class Ewave_Quicksales_Model_Api_Createitem extends Mage_Core_Model_Abstract
 
         $listing_log = Mage::getModel('quicksales/listing_log');
 
-        $date = time();
+        $date = Zend_Date::now()->toString(Varien_Date::DATETIME_INTERNAL_FORMAT);
         $listing_log
             ->setListingId($listing->getId())
             ->setDate($date);
@@ -513,8 +513,15 @@ class Ewave_Quicksales_Model_Api_Createitem extends Mage_Core_Model_Abstract
                             $this->_updated++;
                         }
 
-                        $listing_product->setQuicksaleListingId($resultInformation['ListingID']);
-                        $listing_product->save();
+                        if (!empty($resultInformation['ListingID'])) {
+                            $listing_product->setQuicksaleListingId($resultInformation['ListingID']);
+                            $listing_product->save();
+                            $result = 1;
+                        } else {
+                            $listing_product->delete();
+                            $result = 0;
+                        }
+
                     } else {
                         $this->_errors++;
                         $result = 0;

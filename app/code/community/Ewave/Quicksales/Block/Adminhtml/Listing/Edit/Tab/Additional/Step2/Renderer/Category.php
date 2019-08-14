@@ -61,7 +61,7 @@ class Ewave_Quicksales_Block_Adminhtml_Listing_Edit_Tab_Additional_Step2_Rendere
         }
 
 
-        return '<span id="category_label">' . $currentCategoryLabel . '</span>' . $hidden->toHtml() . $changeButton->toHtml() . $html . $applyButton->toHtml();
+        return '<span id="category_label">' . $currentCategoryLabel . '</span>' . $hidden->toHtml() . $changeButton->toHtml() . '<br />' . $html . '<br />' . $applyButton->toHtml();
     }
 
 }

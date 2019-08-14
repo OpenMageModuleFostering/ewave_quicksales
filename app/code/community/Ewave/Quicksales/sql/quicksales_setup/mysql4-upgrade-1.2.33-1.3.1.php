@@ -3,19 +3,22 @@
 $installer = $this;
 $installer->startSetup();
 
-$status = Mage::getModel('sales/order_status')->load('qnot_checked_out');
+if (Mage::getModel('sales/order_status')->getResource()) {
 
-$status->setData(
-    array(
-        'status' => 'qnot_checked_out',
-        'label' => 'Not Checked Out',
-        'state' => 'qnot_checked_out',
-        'state_label' => 'Not Checked Out',
-    )
-);
+    $status = Mage::getModel('sales/order_status')->load('qnot_checked_out');
 
-$status->assignState('qnot_checked_out');
+    $status->setData(
+        array(
+            'status' => 'qnot_checked_out',
+            'label' => 'Not Checked Out',
+            'state' => 'qnot_checked_out',
+            'state_label' => 'Not Checked Out',
+        )
+    );
 
-$status->save();
+    $status->assignState('qnot_checked_out');
+
+    $status->save();
+}
 
 $installer->endSetup();
