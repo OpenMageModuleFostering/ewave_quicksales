@@ -26,7 +26,7 @@ class Ewave_Quicksales_Model_Api_Gettags extends Mage_Eav_Model_Entity_Attribute
             return false;
         }
 
-        if ($this->qAttributes[$categoryId]) {
+        if (isset($this->qAttributes[$categoryId])) {
             return array($this->qAttributes[$categoryId], $this->qAttributesValues[$categoryId]);
         }
 
@@ -56,6 +56,9 @@ class Ewave_Quicksales_Model_Api_Gettags extends Mage_Eav_Model_Entity_Attribute
 
 
         foreach ($this->_attributeTags as $attributeTag) {
+		if (empty($attributes->$attributeTag)) {
+			continue;
+		}
             $attributeObj = $attributes->$attributeTag;
             $attributeId = $attributeObj->getAttribute('AttrID');
             $attributeName = $attributeObj->getAttribute('AttrName');

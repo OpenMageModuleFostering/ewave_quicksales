@@ -104,6 +104,8 @@ class Ewave_Quicksales_Block_Adminhtml_Listing_Edit_Tab_Additional_Step2_Depende
 
         foreach ($elements as $e) {
 
+		$data = array();
+
             /**
              * Look for custom defined field path
              */
@@ -124,6 +126,7 @@ class Ewave_Quicksales_Block_Adminhtml_Listing_Edit_Tab_Additional_Step2_Depende
             }
 
             $id = $this->_section->getName() . '_' . $group->getName() . '_' . $e->getName();
+
 
             if (isset($this->_configData[$path])) {
                 $data = $this->_configData[$path];

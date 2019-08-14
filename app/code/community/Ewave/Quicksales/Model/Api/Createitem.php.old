@@ -294,20 +294,11 @@ class Ewave_Quicksales_Model_Api_Createitem extends Mage_Core_Model_Abstract
 
                     $listingInformation = array();
 
+
                     if ($listingConfiguration['description'] == 'custom') {
-						preg_match_all("/\#.*?\#/",$listingConfiguration['description_custom'],$custom_attributes);
-						if(!empty($custom_attributes))
-						{
-							foreach($custom_attributes[0] as $custom_attribute)
-							{
-								$listingConfiguration['description_custom'] = str_replace($custom_attribute,$product->getData(trim($custom_attribute, '#')),$listingConfiguration['description_custom']);
-							}
-						}
-						$listingInformation['custom_description'] = $listingConfiguration['description_custom'];
-						$xmlItem->setNode('Item/Description', $listingInformation['custom_description']);
+                        $listingInformation['custom_description'] = $listingConfiguration['description_custom'];
                     } else {
                         $listingInformation['description'] = $listingConfiguration['description'];
-						$xmlItem->setNode('Item/Description', $product->getData($listingInformation['description']));
                     }
 
                     $listingInformation['duration'] = $listingConfiguration['duration'];
@@ -330,7 +321,11 @@ class Ewave_Quicksales_Model_Api_Createitem extends Mage_Core_Model_Abstract
                     }
 
                     $listingInformation['auto_1min'] = $listingConfiguration['auto_1min'];
-						
+
+                    $xmlItem->setNode('Item/Description', ($listingInformation['description']
+                        ? $product->getData($listingInformation['description'])
+                        : $listingInformation['custom_description']));
+
                     if (!$buyNowOnly) {
                         $xmlItem->setNode('Item/Duration', $listingInformation['duration']);
                     }

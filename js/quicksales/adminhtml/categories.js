@@ -57,14 +57,9 @@ CategoryActions.prototype = {
                         }
 
                         Element.insert(element, {after : select});
-						
-						var br = new Element("br");
-						
-						Element.insert(element, {after : br});
 
                         new CategoryActions(select, transport.request.url);
 
-						$('apply_category').hide();
                     } else {
                         $('apply_category').show();
 

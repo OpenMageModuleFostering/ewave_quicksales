@@ -166,9 +166,8 @@ class Ewave_Quicksales_Model_Api_Getorders extends Mage_Core_Model_Abstract
                             } elseif ($oldStatus == 'pending' && ((string)$Transaction->CheckoutDetails->CheckoutID != '')) {
                                 $skeepOrder = true;
 								break;
-							} elseif ((!empty($invoiceId) && $order->getQuicksalesOrderId() == $invoiceId)  || !$order->canCancel()) {
+                            } elseif ((!empty($invoiceId) && $order->getQuicksalesOrderId() == $invoiceId)  || !$order->canCancel()) {
                                 $skeepOrder = true;
-								break;
                             }
                         }
                     }
@@ -330,6 +329,7 @@ class Ewave_Quicksales_Model_Api_Getorders extends Mage_Core_Model_Abstract
                     $username = explode(' ', $xmlInfo->Name);
                     $customerObject->setFirstname($username[0]);
                     $customerObject->setLastname($username[1]);
+                    $customerObject->setStoreId(Mage::app()->getDefaultStoreView()->getStoreId());
                     $customerObject->save();
                 }
 
@@ -389,6 +389,11 @@ class Ewave_Quicksales_Model_Api_Getorders extends Mage_Core_Model_Abstract
         $customerMessage = '';
 
         $quoteObj = Mage::getModel('sales/quote')->assignCustomer($customerObj);
+
+        $defaultStoreId = Mage::app()->getDefaultStoreView()->getStoreId();
+
+        $storeObj = $quoteObj->getStore()->load($defaultStoreId);
+        $quoteObj->setStore($storeObj);
 
         $quoteObj->getBillingAddress()->addData($customerObj->getAddress()->getData());
         $quoteObj->getShippingAddress()->addData($customerObj->getAddress()->getData());

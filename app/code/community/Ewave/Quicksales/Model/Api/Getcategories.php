@@ -98,10 +98,16 @@ class Ewave_Quicksales_Model_Api_Getcategories extends Ewave_Quicksales_Model_Ap
             if (empty($cat['value'])) {
                 continue;
             }
-            if ($categories[$cat['parent']]) {
+		if (!isset($categories[$cat['value']])) {
+			$categories[$cat['value']] = '';
+		}
+            if (isset($categories[$cat['parent']])) {
                 $categories[$cat['value']] = $categories[$cat['parent']] . '/';
             }
-            $categories[$cat['value']] .= $cat['label'];
+
+            if (isset($cat['label'])) {
+	            $categories[$cat['value']] .= $cat['label'];
+		}
 
         }
 
